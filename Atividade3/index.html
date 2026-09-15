@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Mateus Marcondes Tognoli">
+    <meta name="description" content="APIs e integrações - conceitos, tipos, ferramentas e exemplos.">
+    <meta name="keywords" content="API, REST, SOAP, GraphQL, WebSocket, Webhook, Integração, Programação Web">
+    <link rel="stylesheet" href="./style.css">
+
+    <title>APIs e Integrações - Mateus Marcondes Tognoli</title>
+
+</head>
+<body>
+    <header class="header-1">
+        <nav class="nav bd-grid">
+            <div>
+                <a href="#home" class="nav-logo">
+                    APIs e Integrações
+                </a>
+            </div>
+
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link active">
+                            Início
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link">
+                            Introdução
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#concepts" class="nav-link">
+                            Conceitos
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#types" class="nav-link">
+                            Tipos de API
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#integrations" class="nav-link">
+                            Integrações
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#tools" class="nav-link">
+                            Ferramentas
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#security" class="nav-link">
+                            Segurança
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#examples" class="nav-link">
+                            Exemplos
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link">
+                            Referências
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="home bd-grid" id="home">
+            <div class="home-data">
+                <h1 class="home-title">
+                    APIs e Integrações <br>
+                    <span class="home-title-color">
+                        Conceitos, Tipos, Ferramentas e Exemplos
+                    </span>
+                </h1>
+                <p>Mateus Marcondes Tognoli</p>
+                <p>Disciplina: Programação Web - Prof.ª Denilce Veloso</p>
+                <p>Fatec Sorocaba José Crespo Gonzales</p>
+                <a href="#about" class="button">Ver conteúdo</a>
+            </div>
+        </section>
+
+        <section class="about section" id="about">
+            <h2 class="section-title">
+                Introdução
+            </h2>
+
+            <div class="about-container bd-grid">
+                <div>
+                    <p class="about-text">
+                        A evolução dos sistemas digitais aumentou a necessidade de comunicação entre
+                        aplicações, serviços e plataformas diferentes. Para que esses componentes consigam
+                        trocar informações de maneira organizada, são utilizadas interfaces de programação
+                        de aplicações, conhecidas pela sigla <b>API</b> (Application Programming Interface).
+                    </p>
+
+                    <p class="about-text">
+                        Uma API define como um software pode interagir com outro software. Na Web,
+                        normalmente utilizam protocolos como <abbr title="HyperText Transfer Protocol">HTTP</abbr>
+                        e formatos de dados como <abbr title="JavaScript Object Notation">JSON</abbr>. As
+                        integrações correspondem ao processo de conectar sistemas para que dados, funções ou
+                        eventos possam circular entre eles.
+                    </p>
+
+                    <blockquote cite="link">
+                        <q>APIs são uma das principais formas de integração, mas não são a única.</q>
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
+        <section class="concepts section" id="concepts">
+            <h2 class="section-title">Conceitos Fundamentais</h2>
+            <div class="concepts-container bd-grid">
+                <h3><u>O que é uma API?</u></h3>
+                <p>
+                    É uma interface que estabelece um contrato de comunicação entre componentes de
+                    software, reduzindo o acoplamento entre sistemas. Uma API disponibiliza
+                    <i>endpoints</i>, que são endereços associados a recursos ou operações.
+                </p>
+
+                <br>
+                <h3><u>Métodos HTTP</u></h3>
+                <ul>
+                    <li>GET - leitura de dados</li>
+                    <li>POST - criação de dados</li>
+                    <li>PUT - atualização de dados</li>
+                    <li>PATCH - atualização parcial</li>
+                    <li>DELETE - remoção de dados</li>
+                </ul>
+
+                <br>
+                <h3><u>Endpoint, requisição e resposta</u></h3>
+                <dl>
+                    <dt><em>Endpoint</em></dt>
+                    <dd>Ponto de acesso disponibilizado pelo serviço, como <code>/usuarios/15</code></dd>
+                    <dt><em>Requisição</em></dt>
+                    <dd>Mensagem enviada pelo cliente (método, URL, cabeçalhos, corpo)</dd>
+                    <dt><em>Resposta</em></dt>
+                    <dd>Mensagem retornada pelo servidor (status, cabeçalhos, dados)</dd>
+                </dl>
+
+                <br>
+                <h3><u>Formatos de dados</u></h3>
+                <p>
+                    <b>JSON</b> é o formato mais utilizado em APIs Web por ser simples e legível.
+                    <b>XML</b> também é usado, especialmente em integrações mais antigas ou baseadas em SOAP.
+                </p>
+            </div>
+        </section>
+
+        <section class="types section" id="types">
+            <h2 class="section-title">Tipos de APIs</h2>
+            <div class="types-container bd-grid">
+                <h3><u>Quanto ao público</u></h3>
+                <ol>
+                    <li><b>Públicas:</b> disponibilizadas para desenvolvedores externos</li>
+                    <li><b>Privadas:</b> usadas internamente por uma organização</li>
+                    <li><b>De parceiros:</b> disponibilizadas mediante contrato e credenciais</li>
+                </ol>
+
+                <br>
+                <div class="skils-data">
+                    <div class="skills-names">
+                        <p>REST</p>
+                    </div>
+                    <p>Estilo arquitetural baseado em recursos e métodos HTTP. Simples e amplamente adotado.</p>
+                </div>
+
+                <div class="skils-data">
+                    <div class="skills-names">
+                        <p>SOAP</p>
+                    </div>
+                    <p>Framework de mensagens em XML, com contrato formal. Comum em ambientes corporativos.</p>
+                </div>
+
+                <div class="skils-data">
+                    <div class="skills-names">
+                        <p>GraphQL</p>
+                    </div>
+                    <p>O cliente define exatamente os dados que precisa consultar.</p>
+                </div>
+
+                <div class="skils-data">
+                    <div class="skills-names">
+                        <p>WebSocket</p>
+                    </div>
+                    <p>Comunicação bidirecional e contínua entre cliente e servidor.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="integrations section" id="integrations">
+            <h2 class="section-title">Integrações entre Sistemas</h2>
+            <div class="integrations-container bd-grid">
+                <p>
+                    Integrar sistemas significa fazer aplicações diferentes trabalharem juntas. A
+                    integração pode ser <b>síncrona</b> (aguarda resposta) ou <b>assíncrona</b>
+                    (processada posteriormente).
+                </p>
+
+                <br>
+                <h3><u>Webhook</u></h3>
+                <p>Notificação enviada automaticamente para uma URL quando um evento acontece (ex: confirmação de pagamento).</p>
+
+                <h3><u>API Gateway</u></h3>
+                <p>Porta de entrada para APIs e serviços de backend, centralizando roteamento, autenticação e monitoramento.</p>
+
+                <h3><u>Polling</u></h3>
+                <p>Consulta periódica a outra aplicação para verificar novidades. Simples, mas pode gerar requisições desnecessárias.</p>
+            </div>
+        </section>
+
+        <section class="tools section" id="tools">
+            <h2 class="section-title">Ferramentas</h2>
+            <div class="tools-container bd-grid">
+                <table class="projects-table">
+                    <thead>
+                        <tr>
+                            <th>Ferramenta</th>
+                            <th>Finalidade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Postman</td>
+                            <td>Criar, enviar e testar requisições de APIs</td>
+                        </tr>
+                        <tr>
+                            <td>Insomnia</td>
+                            <td>Criar e executar requisições HTTP</td>
+                        </tr>
+                        <tr>
+                            <td>OpenAPI</td>
+                            <td>Especificação para documentar APIs HTTP</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="security section" id="security">
+            <h2 class="section-title">Autenticação e Segurança</h2>
+            <div class="security-container bd-grid">
+                <p>
+                    Mecanismos comuns: API keys, tokens, Bearer Token, JWT e <b>OAuth 2.0</b>
+                    (framework de autorização padronizado pelo IETF).
+                </p>
+                <br>
+                <h3><u>Boas práticas</u></h3>
+                <ul>
+                    <li>Usar HTTPS</li>
+                    <li>Validar entradas</li>
+                    <li>Rate limiting</li>
+                    <li>Registrar eventos relevantes</li>
+                    <li>Proteger chaves secretas</li>
+                    <li>Controlar permissões</li>
+                </ul>
+                <p>
+                    <abbr title="Cross-Origin Resource Sharing">CORS</abbr> controla se um navegador pode
+                    fazer requisições para um domínio diferente daquele que serviu a página.
+                </p>
+            </div>
+        </section>
+
+        <section class="examples section" id="examples">
+            <h2 class="section-title">Exemplos Práticos</h2>
+            <div class="examples-container bd-grid">
+                <table class="projects-table">
+                    <thead>
+                        <tr>
+                            <th>Modelo</th>
+                            <th>Vantagem</th>
+                            <th>Exemplo de uso</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>REST</td>
+                            <td>Simplicidade e grande adesão</td>
+                            <td>Sistemas Web e mobile</td>
+                        </tr>
+                        <tr>
+                            <td>SOAP</td>
+                            <td>Padronização e interoperabilidade</td>
+                            <td>Integrações corporativas</td>
+                        </tr>
+                        <tr>
+                            <td>GraphQL</td>
+                            <td>Flexibilidade nas consultas</td>
+                            <td>Aplicações com telas variadas</td>
+                        </tr>
+                        <tr>
+                            <td>WebSocket</td>
+                            <td>Atualizações em tempo real</td>
+                            <td>Chat e dashboards</td>
+                        </tr>
+                        <tr>
+                            <td>Webhook</td>
+                            <td>Evita consultas repetitivas</td>
+                            <td>Pagamentos e automações</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <br>
+                <br>
+
+                <div class="projects-container bd-grid">
+                    <div class="projects-ig">
+                        <figure>
+                            <figcaption>Google Maps Geocoding API - converte endereços em coordenadas</figcaption>
+                        </figure>
+                    </div>
+                </div>
+
+                <div class="projects-container bd-grid">
+                    <div class="projects-ig">
+                        <figure>
+                            <figcaption>GitHub REST API - consulta repositórios, issues e pull requests</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact section" id="contact">
+            <h2 class="section-title">Referências Bibliográficas</h2>
+            <div class="contact container bd-grid">
+                <ul>
+                    <li>BIEHL, M. API Architecture - The Big Picture for Building APIs.</li>
+                    <li>IBM. O que é uma API (Interface de Programação de Aplicativos)?</li>
+                    <li>Amazon Web Services (AWS). API (interface de programação de aplicações).</li>
+                    <li>Sensedia. Tipos de APIs: Web, RESTful, SOAP, GraphQL e além.</li>
+                    <li>Alura. Entenda o que é uma API e sua importância.</li>
+                    <li>Google Cloud. Desenvolvimento de API: criação de serviços da Web escalonáveis.</li>
+                    <li>Nota Gateway. O que é o Postman?</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+
+    </footer>
+
+</body>
+</html>
