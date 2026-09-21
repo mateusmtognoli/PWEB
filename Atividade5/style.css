@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+}
+
+body {
+    display: flex;
+    margin: 0;
+    min-height: 100px;
+    align-items: center;
+    justify-content: center;
+}
+
+.quadrado {
+    width: 500px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: gray;
+}
+
+h2 {
+    text-align: center;
+}
+
+h2::before {
+    content: Cinza;
+}
+
+@media (max-width: 420px) {
+    .quadrado {
+        background-color: gray;
+    }
+
+    h2::before {
+        content: "Cinza";
+    }
+}
+
+@media (min-width: 421px) and (max-width: 768px){
+    .quadrado {
+        background-color: orangered;
+    }
+
+    h2::before {
+        content: "Laranja";
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px){
+    .quadrado {
+        background-color: magenta;
+    }
+
+    h2::before {
+        content: "Rosa";
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1080px){
+    .quadrado {
+        background-color: red;
+    }
+
+    h2::before {
+        content: "Vermelho";
+    }
+}
+
+@media (min-width: 1081px) and (max-width: 1366px){
+    .quadrado {
+        background-color: blue;
+    }
+
+    h2::before {
+        content: "Azul";
+    }
+}
+
+@media (min-width: 1367px) and (max-width: 1920px){
+    .quadrado {
+        background-color: yellow;
+    }
+
+    h2::before {
+        content: "Amarelo";
+    }
+}
+
+@media (min-width: 1921px) {
+    .quadrado {
+        background-color: green;
+    }
+
+    h2::before {
+        content: "Verde";
+    }
+}
