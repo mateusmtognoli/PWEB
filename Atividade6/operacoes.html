@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Operações</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 400px; margin: 40px auto; }
+        label { display: block; margin-top: 10px; }
+        input { width: 100%; padding: 6px; box-sizing: border-box; }
+        button { margin-top: 15px; padding: 8px 16px; }
+        #resultado { margin-top: 20px; line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <h1>Operações Matemáticas</h1>
+
+    <label>Primeiro número:
+        <input type="number" id="num1" step="any">
+    </label>
+    <label>Segundo número:
+        <input type="number" id="num2" step="any">
+    </label>
+
+    <button onclick="calcular()">Calcular</button>
+
+    <div id="resultado"></div>
+
+    <script src="operacoes.js"></script>
+</body>
+</html>
