@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Pedra, Papel ou Tesoura</title>
+  <style>
+    body {
+      text-align: center;
+      font-size: larger;
+    }
+    button {
+      font-size: 16px;
+    }
+    .empate {
+      color: #d68910;
+    }
+    .vitoria {
+      color: #2e8b57;
+    }
+    .derrota {
+      color: #c0392b;
+    }
+  </style>
+
+</head>
+<body>
+
+  <h1>Pedra, Papel ou Tesoura</h1>
+  <p>Faça sua jogada:</p>
+
+  <p>
+    <button onclick="jogar('pedra')">Pedra</button>
+    <button onclick="jogar('papel')">Papel</button>
+    <button onclick="jogar('tesoura')">Tesoura</button>
+  </p>
+
+  <div id="resultado">
+    <div id="escolhas"></div>
+    <div id="mensagem"></div>
+  </div>
+
+  <p>
+    Você: <b id="pontosUsuario">0</b> | Empates: <b id="empates">0</b> | Computador: <b id="pontosComputador">0</b>
+  </p>
+
+  <script>
+    var pontosUsuario = 0;
+    var pontosComputador = 0;
+    var empates = 0;
+    var nomes = { pedra: "Pedra", papel: "Papel", tesoura: "Tesoura" };
+
+    function escolhaDoComputador() {
+      var numero = Math.floor(Math.random() * 3);
+      if (numero == 0) {
+        return "pedra";
+      }
+      else if (numero == 1) {
+        return "papel";
+      }
+      else {
+        return "tesoura";
+      }
+    }
+
+    function vencedor(usuario, computador) {
+      if (usuario == computador) {
+        return "empate";
+      }
+      else if (usuario == "pedra" && computador == "tesoura") {
+        return "usuario";
+      }
+      else if (usuario == "papel" && computador == "pedra") {
+        return "usuario";
+      }
+      else if (usuario == "tesoura" && computador == "papel") {
+        return "usuario";
+      }
+      else {
+        return "computador";
+      }
+    }
+
+    function jogar(escolhaUsuario) {
+      var escolhaComputador = escolhaDoComputador();
+      var resultado = vencedor(escolhaUsuario, escolhaComputador);
+      var mensagem = document.getElementById("mensagem");
+
+      document.getElementById("escolhas").innerHTML =
+        "Você escolheu: " + nomes[escolhaUsuario] + "<br>" +
+        "Computador escolheu: " + nomes[escolhaComputador];
+
+      if (resultado == "empate") {
+        empates++;
+        mensagem.innerHTML = "Empate!";
+        mensagem.className = "empate";
+      }
+      else if (resultado == "usuario") {
+        pontosUsuario++;
+        mensagem.innerHTML = "Você venceu!";
+        mensagem.className = "vitoria";
+      }
+      else {
+        pontosComputador++;
+        mensagem.innerHTML = "O computador venceu!";
+        mensagem.className = "derrota";
+      }
+    }
+  </script>
+
+</body>
+</html>
